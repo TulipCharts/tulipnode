@@ -11,7 +11,7 @@ Oscillator, and many more.
 
 Installion should just be:
 
-```
+``` js
 npm install tulind
 ```
 
@@ -25,14 +25,14 @@ If you run into problems, let me know.
 
 Tulipnode is very easy to use.
 
-```
+``` js
 var tulind = require('tulind');
 console.log("Tulip Indicators version is:");
 console.log(tulind.version);
 ```
 
 In these examples, we assume you already have price data loaded such as:
-```
+``` js
 //Examples assume you have some price data like this:
 var open  = [4,5,5,5,4,4,4,6,6,6];
 var high  = [9,7,8,7,8,8,7,7,8,7];
@@ -43,7 +43,7 @@ var volume = [123,232,212,232,111,232,212,321,232,321];
 
 Calculating a simple moving average is as easy as:
 
-```
+``` js
 //Do a simple moving average on close prices with period of 3.
 tulind.indicators.sma.indicator([close], [3], function(err, results) {
   console.log("Result of sma is:");
@@ -55,7 +55,7 @@ tulind.indicators.sma.indicator([close], [3], function(err, results) {
 
 Example of calculating the Stochastic Oscillator:
 
-```
+``` js
 //Functions that take multiple inputs, options, or outputs use arrays.
 //Call Stochastic Oscillator, taking 3 inputs, 3 options, and 2 outputs.
 tulind.indicators.stoch.indicator([high, low, close], [5, 3, 3], function(err, results) {
@@ -68,7 +68,7 @@ tulind.indicators.stoch.indicator([high, low, close], [5, 3, 3], function(err, r
 
 It's also easy to discover argument types at run-time:
 
-```
+``` js
 //Discover argument types at run-time:
 console.log(tulind.indicators.stoch);
 
@@ -89,14 +89,14 @@ console.log(tulind.indicators.stoch);
 Many (most) indicators return an output array length smaller than the input length.
 You can get the difference like this:
 
-```
+``` js
 console.log("Given these options, the output arrays will be this much shorter than the input arrays:");
 console.log(tulind.indicators.stoch.start([5,3,3]));
 ```
 
 
 Hopefully it's obvious, but you can see all the available indicators by doing:
-```
+``` js
 console.log(tulind.indicators);
 ```
 
