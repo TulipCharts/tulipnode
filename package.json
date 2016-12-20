@@ -1,7 +1,7 @@
 {
   "author": "Lewis Van Winkle",
   "name": "tulind",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "description": "Tulip Indicators Wrapper",
   "main": "index.js",
   "gypfile": true,
