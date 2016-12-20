@@ -26,7 +26,7 @@ If you run into problems, let me know.
 Tulipnode is very easy to use.
 
 ```
-var tulipnode = require('tulipnode');
+var tulind = require('tulind');
 console.log("Tulip Indicators version is:");
 console.log(tulind.version);
 ```
