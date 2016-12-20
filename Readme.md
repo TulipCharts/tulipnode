@@ -1,0 +1,105 @@
+#tulipnode
+
+Tulipnode is the official node.js wrapper for [Tulip
+Indicators](https://tulipindicators.org). It provides 100+
+technical analysis indicator functions, such as:
+simple moving average, Bollinger Bands, MACD, Parabolic SAR, Stochastic
+Oscillator, and many more.
+
+
+##Installation
+
+Installion should just be:
+
+```
+npm install tulind
+```
+
+Note that you do need to have a C++ compiler available. The Tulip Indicators
+source code is included, so this has no other real dependencies to worry about.
+
+If you run into problems, let me know.
+
+
+##Usage
+
+Tulipnode is very easy to use.
+
+```
+var tulipnode = require('tulipnode');
+console.log("Tulip Indicators version is:");
+console.log(tulind.version);
+```
+
+In these examples, we assume you already have price data loaded such as:
+```
+//Examples assume you have some price data like this:
+var open  = [4,5,5,5,4,4,4,6,6,6];
+var high  = [9,7,8,7,8,8,7,7,8,7];
+var low   = [1,2,3,3,2,1,2,2,2,3];
+var close = [4,5,6,6,6,5,5,5,6,4];
+var volume = [123,232,212,232,111,232,212,321,232,321];
+```
+
+Calculating a simple moving average is as easy as:
+
+```
+//Do a simple moving average on close prices with period of 3.
+tulind.indicators.sma.indicator([close], [3], function(err, results) {
+  console.log("Result of sma is:");
+  console.log(results[0]);
+});
+```
+
+
+
+Example of calculating the Stochastic Oscillator:
+
+```
+//Functions that take multiple inputs, options, or outputs use arrays.
+//Call Stochastic Oscillator, taking 3 inputs, 3 options, and 2 outputs.
+tulind.indicators.stoch.indicator([high, low, close], [5, 3, 3], function(err, results) {
+  console.log("Result of stochastic oscillator is:");
+  console.log(results[0]);
+  console.log(results[1]);
+});
+```
+
+
+It's also easy to discover argument types at run-time:
+
+```
+//Discover argument types at run-time:
+console.log(tulind.indicators.stoch);
+
+//Produces:
+{ name: 'stoch',
+  full_name: 'Stochastic Oscillator',
+  inputs: 3,
+  options: 3,
+  outputs: 2,
+  input_names: [ 'high', 'low', 'close' ],
+  option_names: [ '%k period', '%k slowing period', '%d period' ],
+  output_names: [ 'stoch_k', 'stoch_d' ],
+  indicator: [Function],
+  start: [Function] }
+```
+
+
+Many (most) indicators return an output array length smaller than the input length.
+You can get the difference like this:
+
+```
+console.log("Given these options, the output arrays will be this much shorter than the input arrays:");
+console.log(tulind.indicators.stoch.start([5,3,3]));
+```
+
+
+Hopefully it's obvious, but you can see all the available indicators by doing:
+```
+console.log(tulind.indicators);
+```
+
+You can also see a full list of the available indicators on the [Tulip
+Indicators website here](https://tulipindicators.org/list).
+

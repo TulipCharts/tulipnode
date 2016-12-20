@@ -1,0 +1,16 @@
+{
+  "author": "Lewis Van Winkle",
+  "name": "tulind",
+  "version": "0.8.2",
+  "description": "Tulip Indicators Wrapper",
+  "main": "index.js",
+  "gypfile": true,
+  "scripts": {
+    "install": "node-gyp rebuild"
+  },
+  "license": "LGPL-3.0",
+  "dependencies": {
+    "bindings": "^1.2.1",
+    "nan": "^2.2.9"
+  }
+}
