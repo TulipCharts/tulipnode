@@ -1,6 +1,6 @@
-#tulipnode
+#Tulip Node
 
-Tulipnode is the official node.js wrapper for [Tulip
+Tulip Node is the official node.js wrapper for [Tulip
 Indicators](https://tulipindicators.org). It provides 100+
 technical analysis indicator functions, such as:
 simple moving average, Bollinger Bands, MACD, Parabolic SAR, Stochastic
@@ -9,7 +9,7 @@ Oscillator, and many more.
 
 ##Installation
 
-Installion should just be:
+Installation should just be:
 
 ``` js
 npm install tulind
@@ -23,7 +23,7 @@ If you run into problems, let me know.
 
 ##Usage
 
-Tulipnode is very easy to use.
+Tulip Node is very easy to use.
 
 ``` js
 var tulind = require('tulind');
