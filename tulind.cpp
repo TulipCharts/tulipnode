@@ -258,6 +258,28 @@ NAN_MODULE_INIT(Init) {
             Nan::Set(ind, Nan::New("name").ToLocalChecked(), Nan::New(info->name).ToLocalChecked());
             Nan::Set(ind, Nan::New("full_name").ToLocalChecked(), Nan::New(info->full_name).ToLocalChecked());
 
+            char const *type = "unknown";
+
+            switch (info->type) {
+                case TI_TYPE_OVERLAY:
+                    type = "overlay";
+                    break;
+                case TI_TYPE_INDICATOR:
+                    type = "indicator";
+                    break;
+                case TI_TYPE_MATH:
+                    type = "math";
+                    break;
+                case TI_TYPE_SIMPLE:
+                    type = "simple";
+                    break;
+                case TI_TYPE_COMPARATIVE:
+                    type = "comparative";
+                    break;
+            }
+
+            Nan::Set(ind, Nan::New("type").ToLocalChecked(), Nan::New(type).ToLocalChecked());
+
             Nan::Set(ind, Nan::New("inputs").ToLocalChecked(), Nan::New(info->inputs));
             Nan::Set(ind, Nan::New("options").ToLocalChecked(), Nan::New(info->options));
             Nan::Set(ind, Nan::New("outputs").ToLocalChecked(), Nan::New(info->outputs));

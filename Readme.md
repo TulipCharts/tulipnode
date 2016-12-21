@@ -77,6 +77,7 @@ console.log(tulind.indicators.stoch);
 //Produces:
 { name: 'stoch',
   full_name: 'Stochastic Oscillator',
+  type: 'indicator',
   inputs: 3,
   options: 3,
   outputs: 2,
