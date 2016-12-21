@@ -1,13 +1,30 @@
 {
   "author": "Lewis Van Winkle",
   "name": "tulind",
-  "version": "0.8.3",
-  "description": "Tulip Indicators Wrapper",
+  "version": "0.8.4",
+  "description": "Tulip Indicators Wrapper Providing Over 100 Technical Analysis Functions",
   "main": "index.js",
   "gypfile": true,
   "scripts": {
     "install": "node-gyp rebuild"
   },
+  "repository": {
+      "type": "git",
+      "url": "git://github.com/TulipCharts/tulipnode"
+  },
+  "keywords": [
+      "tulip",
+      "charts",
+      "charting",
+      "indicators",
+      "oscillator",
+      "overlay",
+      "technical",
+      "analysis",
+      "finance",
+      "trading",
+      "markets"
+  ],
   "license": "LGPL-3.0",
   "dependencies": {
     "bindings": "^1.2.1",
