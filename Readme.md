@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/TulipCharts/tulipnode.svg?branch=master)](https://travis-ci.org/TulipCharts/tulipnode)
+
 #Tulip Node
 
 Tulip Node is the official node.js wrapper for [Tulip
