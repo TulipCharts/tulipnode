@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/TulipCharts/tulipnode.svg?branch=master)](https://travis-ci.org/TulipCharts/tulipnode)
 
-#Tulip Node
+# Tulip Node
 
 Tulip Node is the official node.js wrapper for [Tulip
 Indicators](https://tulipindicators.org). It provides 100+
@@ -9,7 +9,7 @@ simple moving average, Bollinger Bands, MACD, Parabolic SAR, Stochastic
 Oscillator, and many more.
 
 
-##Installation
+## Installation
 
 Installation should just be:
 
@@ -23,7 +23,7 @@ source code is included, so this has no other real dependencies to worry about.
 If you run into problems, let me know.
 
 
-##Usage
+## Usage
 
 Tulip Node is very easy to use.
 
