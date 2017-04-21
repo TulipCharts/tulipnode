@@ -1,0 +1,4 @@
+.node_pre_gyprc
+node_modules
+build
+lib
