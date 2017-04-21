@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/TulipCharts/tulipnode.svg?branch=master)](https://travis-ci.org/TulipCharts/tulipnode)
+[![Build Status](https://ci.appveyor.com/api/projects/status/ps9l8w7fxi81v2q5?svg=true)](https://ci.appveyor.com/project/codeplea/tulipnode)
 
 # Tulip Node
 
