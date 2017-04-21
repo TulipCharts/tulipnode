@@ -1,3 +1,6 @@
+# http://www.appveyor.com/docs/appveyor-yml
+
+
 environment:
   node_pre_gyp_accessKeyId:
     secure: GOBrUyHVMfZSrmsS4I63fC+E3qploEcIuQc/ofuTK5U=
@@ -6,6 +9,7 @@ environment:
     secure: QBSKf6NBLUrjkk7ft4H8LyxATdcJ8PmQObKqDgl1qQmT0ju7r3l/D6t8MN2joQqk
 
   matrix:
+    - nodejs_version: 0.12
     - nodejs_version: 4
     - nodejs_version: 5
     - nodejs_version: 6
@@ -19,21 +23,34 @@ shallow_clone: true
 
 install:
   - ps: Install-Product node $env:nodejs_version $env:Platform
-  - ps: Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
-  - npm install --global --production npm-windows-upgrade
-  - npm-windows-upgrade --npm-version 2.15.9 --no-dns-check --no-prompt
-  - node --version
-  - npm --version
-  - node -e "console.log(process.arch);"
-  - IF /I "%PLATFORM%" == "x64" set PATH=C:\Python27-x64;%PATH%
-  - IF /I "%PLATFORM%" == "x86" SET PATH=C:\python27;%PATH%
-  - IF /I "%PLATFORM%" == "x64" CALL "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64
-  - IF /I "%PLATFORM%" == "x86" CALL "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86
-  - npm install --build-from-source
+  - npm install -g npm@3
+  - ps: $env:path = $env:appdata + "\npm;" + $env:path
+
+  # work around an issue with node-gyp v3.3.1 and node 4x
+  # package.json has no certificates in it so we're cool
+  # https://github.com/nodejs/node-gyp/issues/921
+  - ps: npm config set -g cafile=package.json | Write-Host;
+  - ps: npm config set -g strict-ssl=false | Write-Host;
+
+  # Add local node-pre-gyp dir to path
+  - SET PATH=node_modules\.bin;%PATH%
+  # Use 64-bit Python if platform is 64-bit
+  - IF "%platform%" == "x64" SET "PATH=C:\Python27-x64;%PATH%"
+  - IF "%platform%" == "x64" CALL "%VS140COMNTOOLS%..\..\VC\vcvarsall.bat" amd64
+  - IF "%platform%" == "x86" CALL "%VS140COMNTOOLS%..\..\VC\vcvarsall.bat" x86
+  # Print some information
+  - node -v
+  - npm -v
+  # Build
+  - npm install --build-from-source --msvs_version=2015
   - npm test
   - npm ls
   - SET PATH=node_modules\.bin;%PATH%
-  - node-pre-gyp package publish
+  - ps: >-
+      if ($env:APPVEYOR_REPO_COMMIT_MESSAGE.ToLower().Contains("[publish binary]")) {
+        cmd /c 'node_modules\.bin\node-pre-gyp --msvs_version=2015 package unpublish publish info 2>&1'
+      }
+
 
 
 build: off

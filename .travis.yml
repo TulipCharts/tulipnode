@@ -1,12 +1,41 @@
-language: node_js
-node_js:
-    - '6'
-    - '5'
-    - '4'
-before_install:
-  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
-  - sudo apt-get -qq update
-  - sudo apt-get -qq install g++-4.8
+language: cpp
+
+os:
+  - linux
+  - osx
+
 env:
-  - CXX=g++-4.8
-script: node example.js
+  matrix:
+    - NODE_VERSION="0.12"
+    - NODE_VERSION="4"
+    - NODE_VERSION="5"
+    - NODE_VERSION="6"
+    - NODE_VERSION="7"
+    - NODE_VERSION="iojs"
+
+sudo: false
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
+
+before_install:
+  - export CXX=g++
+  - export CC=gcc
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then export CXX=g++-4.8; fi
+  - rm -rf ~/.nvm/ && git clone --depth 1 https://github.com/creationix/nvm.git ~/.nvm
+  - source ~/.nvm/nvm.sh
+  - nvm install $NODE_VERSION
+  - nvm use $NODE_VERSION
+
+install:
+  - npm install --build-from-source
+
+script:
+  - node --version
+  - npm --version
+  - npm test
+  - node example.js

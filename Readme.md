@@ -17,10 +17,20 @@ Installation should just be:
 npm install tulind
 ```
 
-Note that you do need to have a C++ compiler available. The Tulip Indicators
-source code is included, so this has no other real dependencies to worry about.
+It should work on Windows, Os X, and Linux. Node versions 0.12, 4, 5, 6, & 7
+are tested and supported on each platform.
 
-If you run into problems, let me know.
+Note that pre-compiled binaries are available for Windows. For other platforms
+you will need a C++ build environment installed.
+
+You can force building from source with:
+
+```js
+npm install tulind --build-from-source
+```
+
+If you run into problems, let me know. I want this to be easy for everyone to
+use.
 
 
 ## Usage
