@@ -1,7 +1,7 @@
 {
   "author": "Lewis Van Winkle",
   "name": "tulind",
-  "version": "0.8.4",
+  "version": "0.8.5",
   "description": "Tulip Indicators Wrapper Providing Over 100 Technical Analysis Functions",
   "main": "index.js",
   "gypfile": true,
@@ -28,6 +28,23 @@
   "license": "LGPL-3.0",
   "dependencies": {
     "bindings": "^1.2.1",
-    "nan": "^2.2.9"
-  }
+    "nan": "^2.2.9",
+    "node-pre-gyp": "0.6.x"
+  },
+  "devDependencies": {
+      "aws-sdk": "2.x"
+  },
+  "bundledDependencies": ["node-pre-gyp"],
+  "scripts": {
+      "install": "node-pre-gyp install --fallback-to-build",
+      "test": "node test.js"
+  },
+    "binary": {
+        "module_name": "tulind",
+        "module_path" : "./lib/binding/{configuration}/{node_abi}-{platform}-{arch}/",
+        "remote_path" : "./{module_name}/v{version}/{configuration}/",
+        "package_name": "{module_name}-v{version}-{node_abi}-{platform}-{arch}.tar.gz",
+        "host": "https://tulipnode.s3.amazonaws.com"
+    }
+
 }

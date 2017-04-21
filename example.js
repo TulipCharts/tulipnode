@@ -1,4 +1,3 @@
-
 var tulind = require("./index");
 
 console.log("Tulip Indicators version is:");
@@ -38,5 +37,5 @@ tulind.indicators.stoch.indicator([high, low, close], [5, 3, 3], function(err, r
 console.log("Given these options, the output arrays will be this much shorter than the input arrays:");
 console.log(tulind.indicators.stoch.start([5,3,3]));
 
-console.log(tulind.indicators);
+//console.log(tulind.indicators);
 
