@@ -94,6 +94,5 @@ l.run("array wilders", function() {
 
 
 
-
-return l.results();
+process.exit(l.results());
 
