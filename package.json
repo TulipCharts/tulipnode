@@ -6,7 +6,8 @@
   "main": "index.js",
   "gypfile": true,
   "scripts": {
-    "install": "node-gyp rebuild"
+    "install": "node-gyp rebuild",
+    "test": "node test.js"
   },
   "repository": {
       "type": "git",
