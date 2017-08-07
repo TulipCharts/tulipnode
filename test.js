@@ -47,7 +47,15 @@ l.run("array sma", function() {
       l.ok(equal(results[0], [2.5,3.5,4.5,5.5,6.5,7.5,8.5]));
     });
 
+    tulind.indicators.sma.indicator([a], [4]).then(function(results) {
+      l.ok(equal(results[0], [2.5,3.5,4.5,5.5,6.5,7.5,8.5]));
+    });
+
     tulind.indicators.sma.indicator([a], [10], function(err, results) {
+      l.ok(equal(results[0], [5.5]));
+    });
+
+    tulind.indicators.sma.indicator([a], [10]).then(function(results) {
       l.ok(equal(results[0], [5.5]));
     });
 
@@ -95,4 +103,3 @@ l.run("array wilders", function() {
 
 
 process.exit(l.results());
-

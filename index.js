@@ -7,7 +7,15 @@ var tulind = require(binding_path);
 var make_call = function(ind) {
   var index = ind.index;
   return function(inputs, options, callback) {
-    return tulind.callbyindex(index, inputs, options, callback);
+    if (arguments.length < 3) {
+      return new Promise(function(resolve, reject) {
+        tulind.callbyindex(index, inputs, options, function(err, result) {
+          return err ? reject(err) : resolve(result);
+        });
+      });
+    } else {
+      return tulind.callbyindex(index, inputs, options, callback);
+    }
   };
 };
 
