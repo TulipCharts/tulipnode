@@ -47,6 +47,7 @@ console.log(tulind.version);
 In these examples, we assume you already have price data loaded such as:
 ``` js
 //Examples assume you have some price data like this:
+//Data order is from oldest to newset (index 0 is the oldest)
 var open  = [4,5,5,5,4,4,4,6,6,6];
 var high  = [9,7,8,7,8,8,7,7,8,7];
 var low   = [1,2,3,3,2,1,2,2,2,3];
