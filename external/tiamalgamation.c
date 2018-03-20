@@ -1976,11 +1976,11 @@ int ti_adx(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_RE
     }
     TI_REAL adx = 0.0;
     {
-        TI_REAL di_up = dmup / atr;
-        TI_REAL di_down = dmdown / atr;
+        TI_REAL di_up; if (atr != 0) di_up = dmup / atr; else di_up=0;
+        TI_REAL di_down; if (atr != 0) di_down = dmdown / atr; else di_down=0;
         TI_REAL dm_diff = fabs(di_up - di_down);
         TI_REAL dm_sum = di_up + di_down;
-        TI_REAL dx = dm_diff / dm_sum * 100;
+        TI_REAL dx ;if (dm_sum != 0) dx = dm_diff / dm_sum * 100; else dx = dm_diff*100;
         adx += dx;
     }
     for (i = period; i < size; ++i) {
@@ -1991,11 +1991,11 @@ int ti_adx(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_RE
         do { dp = high[i] - high[i-1]; dm = low[i-1] - low[i]; if (dp < 0) dp = 0; else if (dp > dm) dm = 0; if (dm < 0) dm = 0; else if (dm > dp) dp = 0;} while (0);
         dmup = dmup * per + dp;
         dmdown = dmdown * per + dm;
-        TI_REAL di_up = dmup / atr;
-        TI_REAL di_down = dmdown / atr;
+        TI_REAL di_up; if (atr != 0) di_up = dmup / atr; else di_up=0;
+        TI_REAL di_down; if (atr != 0) di_down = dmdown / atr; else di_down=0;
         TI_REAL dm_diff = fabs(di_up - di_down);
         TI_REAL dm_sum = di_up + di_down;
-        TI_REAL dx = dm_diff / dm_sum * 100;
+        TI_REAL dx ;if (dm_sum != 0) dx = dm_diff / dm_sum * 100; else dx = dm_diff*100;
         if (i-period < period-2) {
             adx += dx;
         } else if (i-period == period-2) {
