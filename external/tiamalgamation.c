@@ -1,14 +1,14 @@
 /*
- * TULIP INDICATROS AMALGAMATION
+ * TULIP INDICATORS AMALGAMATION
  * This is all of Tulip Indicators in one file.
- * To get the origional sources, go to https://tulipindicators.org
+ * To get the original sources, go to https://tulipindicators.org
  */
 
 
 /*
  * Tulip Indicators
  * https://tulipindicators.org/
- * Copyright (c) 2010-2016 Tulip Charts LLC
+ * Copyright (c) 2010-2018 Tulip Charts LLC
  * Lewis Van Winkle (LV@tulipcharts.org)
  *
  * This file is part of Tulip Indicators.
@@ -31,8 +31,8 @@
 
 /*
  *
- * Version 0.8.1
- * Header Build 1482259567
+ * Version 0.8.2
+ * Header Build 1521563742
  *
  */
 
@@ -46,8 +46,11 @@
 #define __TI_INDICATORS_H__
 
 
-#define TI_VERSION "0.8.1"
-#define TI_BUILD 1482259567
+#define TI_VERSION "0.8.2"
+#define TI_BUILD 1521563742
+
+const char* ti_version();
+long int ti_build();
 
 #ifndef TI_SKIP_SYSTEM_HEADERS
 #include <math.h>
@@ -1786,7 +1789,7 @@ int ti_zlema(int size,
 /*
  * Tulip Indicators
  * https://tulipindicators.org/
- * Copyright (c) 2010-2016 Tulip Charts LLC
+ * Copyright (c) 2010-2017 Tulip Charts LLC
  * Lewis Van Winkle (LV@tulipcharts.org)
  *
  * This file is part of Tulip Indicators.
@@ -1852,7 +1855,7 @@ do { \
 /*
  * Tulip Indicators
  * https://tulipindicators.org/
- * Copyright (c) 2010-2016 Tulip Charts LLC
+ * Copyright (c) 2010-2017 Tulip Charts LLC
  * Lewis Van Winkle (LV@tulipcharts.org)
  *
  * This file is part of Tulip Indicators.
@@ -1882,10 +1885,10 @@ do { \
 
 
 #endif /*__MINMAX_H__*/
-int ti_abs_start(TI_REAL const *options) { options = options; return 0; } int ti_abs(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; options = options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (fabs(in1[i])); } return TI_OKAY; }
-int ti_acos_start(TI_REAL const *options) { options = options; return 0; } int ti_acos(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; options = options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (acos(in1[i])); } return TI_OKAY; }
+int ti_abs_start(TI_REAL const *options) { (void)options; return 0; } int ti_abs(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; (void)options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (fabs(in1[i])); } return TI_OKAY; }
+int ti_acos_start(TI_REAL const *options) { (void)options; return 0; } int ti_acos(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; (void)options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (acos(in1[i])); } return TI_OKAY; }
 int ti_ad_start(TI_REAL const *options) {
-    options = options;
+    (void)options;
     return 0;
 }
 int ti_ad(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) {
@@ -1893,7 +1896,7 @@ int ti_ad(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REA
     const TI_REAL *low = inputs[1];
     const TI_REAL *close = inputs[2];
     const TI_REAL *volume = inputs[3];
-    options = options;
+    (void)options;
     TI_REAL *output = outputs[0];
     TI_REAL sum = 0;
     int i;
@@ -1906,7 +1909,7 @@ int ti_ad(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REA
     }
     return TI_OKAY;
 }
-int ti_add_start(TI_REAL const *options) { options = options; return 0; } int ti_add(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; const TI_REAL *in2 = inputs[1]; options = options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (in1[i] + in2[i]); } return TI_OKAY; }
+int ti_add_start(TI_REAL const *options) { (void)options; return 0; } int ti_add(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; const TI_REAL *in2 = inputs[1]; (void)options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (in1[i] + in2[i]); } return TI_OKAY; }
 int ti_adosc_start(TI_REAL const *options) {
     return (int)(options[1])-1;
 }
@@ -2074,7 +2077,7 @@ int ti_adxr(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_R
     return TI_OKAY;
 }
 int ti_ao_start(TI_REAL const *options) {
-    options = options;
+    (void)options;
     return 33;
 }
 int ti_ao(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) {
@@ -2106,7 +2109,7 @@ int ti_ao(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REA
     return TI_OKAY;
 }
 int ti_apo_start(TI_REAL const *options) {
-    options=options;
+    (void)options;
     return 1;
 }
 int ti_apo(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) {
@@ -2242,8 +2245,8 @@ int ti_aroonosc(int size, TI_REAL const *const *inputs, TI_REAL const *options, 
     assert(output - outputs[0] == size - ti_aroonosc_start(options));
     return TI_OKAY;
 }
-int ti_asin_start(TI_REAL const *options) { options = options; return 0; } int ti_asin(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; options = options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (asin(in1[i])); } return TI_OKAY; }
-int ti_atan_start(TI_REAL const *options) { options = options; return 0; } int ti_atan(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; options = options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (atan(in1[i])); } return TI_OKAY; }
+int ti_asin_start(TI_REAL const *options) { (void)options; return 0; } int ti_asin(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; (void)options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (asin(in1[i])); } return TI_OKAY; }
+int ti_atan_start(TI_REAL const *options) { (void)options; return 0; } int ti_atan(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; (void)options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (atan(in1[i])); } return TI_OKAY; }
 int ti_atr_start(TI_REAL const *options) {
     return (int)options[0]-1;
 }
@@ -2275,7 +2278,7 @@ int ti_atr(int size, TI_REAL const * const *inputs, TI_REAL const *options, TI_R
     return TI_OKAY;
 }
 int ti_avgprice_start(TI_REAL const *options) {
-    options=options;
+    (void)options;
     return 0;
 }
 int ti_avgprice(int size, TI_REAL const * const *inputs, TI_REAL const *options, TI_REAL * const *outputs) {
@@ -2283,7 +2286,7 @@ int ti_avgprice(int size, TI_REAL const * const *inputs, TI_REAL const *options,
     const TI_REAL *high = inputs[1];
     const TI_REAL *low = inputs[2];
     const TI_REAL *close = inputs[3];
-    options=options;
+    (void)options;
     TI_REAL *output = outputs[0];
     int i;
     for (i = 0; i < size; ++i) {
@@ -2301,7 +2304,7 @@ int ti_bbands(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI
     TI_REAL *upper = outputs[2];
     const int period = (int)options[0];
     const TI_REAL stddev = options[1];
-    const TI_REAL div = 1.0 / period;
+    const TI_REAL scale = 1.0 / period;
     if (period < 1) return TI_INVALID_OPTION;
     if (size <= ti_bbands_start(options)) return TI_OKAY;
     TI_REAL sum = 0;
@@ -2311,8 +2314,8 @@ int ti_bbands(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI
         sum += input[i];
         sum2 += input[i] * input[i];
     }
-    TI_REAL sd = sqrt(sum2 * div - (sum * div) * (sum * div));
-    *middle = sum * div;
+    TI_REAL sd = sqrt(sum2 * scale - (sum * scale) * (sum * scale));
+    *middle = sum * scale;
     *lower++ = *middle - stddev * sd;
     *upper++ = *middle + stddev * sd;
     ++middle;
@@ -2321,8 +2324,8 @@ int ti_bbands(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI
         sum2 += input[i] * input[i];
         sum -= input[i-period];
         sum2 -= input[i-period] * input[i-period];
-        sd = sqrt(sum2 * div - (sum * div) * (sum * div));
-        *middle = sum * div;
+        sd = sqrt(sum2 * scale - (sum * scale) * (sum * scale));
+        *middle = sum * scale;
         *upper++ = *middle + stddev * sd;
         *lower++ = *middle - stddev * sd;
         ++middle;
@@ -2333,7 +2336,7 @@ int ti_bbands(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI
     return TI_OKAY;
 }
 int ti_bop_start(TI_REAL const *options) {
-    options = options;
+    (void)options;
     return 0;
 }
 int ti_bop(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) {
@@ -2341,7 +2344,7 @@ int ti_bop(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_RE
     const TI_REAL *high = inputs[1];
     const TI_REAL *low = inputs[2];
     const TI_REAL *close = inputs[3];
-    options=options;
+    (void)options;
     TI_REAL *output = outputs[0];
     int i;
     for (i = 0; i < size; ++i) {
@@ -2363,7 +2366,7 @@ int ti_cci(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_RE
     const TI_REAL *low = inputs[1];
     const TI_REAL *close = inputs[2];
     const int period = (int)options[0];
-    const TI_REAL div = 1.0 / period;
+    const TI_REAL scale = 1.0 / period;
     if (period < 1) return TI_INVALID_OPTION;
     if (size <= ti_cci_start(options)) return TI_OKAY;
     TI_REAL *output = outputs[0];
@@ -2372,13 +2375,13 @@ int ti_cci(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_RE
     for (i = 0; i < size; ++i) {
         const TI_REAL today = ((high[(i)] + low[(i)] + close[(i)]) * (1.0/3.0));
         ti_buffer_push(sum, today);
-        const TI_REAL avg = sum->sum * div;
+        const TI_REAL avg = sum->sum * scale;
         if (i >= period * 2 - 2) {
             TI_REAL acc = 0;
             for (j = 0; j < period; ++j) {
                 acc += fabs(avg - sum->vals[j]);
             }
-            TI_REAL cci = acc * div;
+            TI_REAL cci = acc * scale;
             cci *= .015;
             cci = (today-avg)/cci;
             *output++ = cci;
@@ -2388,7 +2391,7 @@ int ti_cci(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_RE
     assert(output - outputs[0] == size - ti_cci_start(options));
     return TI_OKAY;
 }
-int ti_ceil_start(TI_REAL const *options) { options = options; return 0; } int ti_ceil(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; options = options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (ceil(in1[i])); } return TI_OKAY; }
+int ti_ceil_start(TI_REAL const *options) { (void)options; return 0; } int ti_ceil(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; (void)options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (ceil(in1[i])); } return TI_OKAY; }
 int ti_cmo_start(TI_REAL const *options) {
     return (int)options[0];
 }
@@ -2415,16 +2418,16 @@ int ti_cmo(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_RE
     assert(output - outputs[0] == size - ti_cmo_start(options));
     return TI_OKAY;
 }
-int ti_cos_start(TI_REAL const *options) { options = options; return 0; } int ti_cos(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; options = options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (cos(in1[i])); } return TI_OKAY; }
-int ti_cosh_start(TI_REAL const *options) { options = options; return 0; } int ti_cosh(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; options = options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (cosh(in1[i])); } return TI_OKAY; }
+int ti_cos_start(TI_REAL const *options) { (void)options; return 0; } int ti_cos(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; (void)options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (cos(in1[i])); } return TI_OKAY; }
+int ti_cosh_start(TI_REAL const *options) { (void)options; return 0; } int ti_cosh(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; (void)options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (cosh(in1[i])); } return TI_OKAY; }
 int ti_crossany_start(TI_REAL const *options) {
-    options=options;
+    (void)options;
     return 1;
 }
 int ti_crossany(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) {
     const TI_REAL *a = inputs[0];
     const TI_REAL *b = inputs[1];
-    options=options;
+    (void)options;
     TI_REAL *output = outputs[0];
     int i;
     for (i = 1; i < size; ++i) {
@@ -2434,13 +2437,13 @@ int ti_crossany(int size, TI_REAL const *const *inputs, TI_REAL const *options, 
     return TI_OKAY;
 }
 int ti_crossover_start(TI_REAL const *options) {
-    options=options;
+    (void)options;
     return 1;
 }
 int ti_crossover(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) {
     const TI_REAL *a = inputs[0];
     const TI_REAL *b = inputs[1];
-    options=options;
+    (void)options;
     TI_REAL *output = outputs[0];
     int i;
     for (i = 1; i < size; ++i) {
@@ -2478,18 +2481,18 @@ int ti_cvi(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_RE
     return TI_OKAY;
 }
 int ti_decay_start(TI_REAL const *options) {
-    options=options;
+    (void)options;
     return 0;
 }
 int ti_decay(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) {
     const TI_REAL *input = inputs[0];
     TI_REAL *output = outputs[0];
     const int period = (int)options[0];
-    const TI_REAL div = 1.0 / period;
+    const TI_REAL scale = 1.0 / period;
     *output++ = input[0];
     int i;
     for (i = 1; i < size; ++i) {
-        TI_REAL d = output[-1] - div;
+        TI_REAL d = output[-1] - scale;
         *output++ = input[i] > d ? input[i] : d;
     }
     return TI_OKAY;
@@ -2568,7 +2571,7 @@ int ti_di(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REA
     assert(minus_di - outputs[1] == size - ti_di_start(options));
     return TI_OKAY;
 }
-int ti_div_start(TI_REAL const *options) { options = options; return 0; } int ti_div(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; const TI_REAL *in2 = inputs[1]; options = options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (in1[i] / in2[i]); } return TI_OKAY; }
+int ti_div_start(TI_REAL const *options) { (void)options; return 0; } int ti_div(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; const TI_REAL *in2 = inputs[1]; (void)options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (in1[i] / in2[i]); } return TI_OKAY; }
 int ti_dm_start(TI_REAL const *options) {
     return (int)options[0]-1;
 }
@@ -2612,7 +2615,7 @@ int ti_dpo(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_RE
     const int period = (int)options[0];
     const int back = period / 2 + 1;
     TI_REAL *output = outputs[0];
-    const TI_REAL div = 1.0 / period;
+    const TI_REAL scale = 1.0 / period;
     if (period < 1) return TI_INVALID_OPTION;
     if (size <= ti_dpo_start(options)) return TI_OKAY;
     TI_REAL sum = 0;
@@ -2620,11 +2623,11 @@ int ti_dpo(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_RE
     for (i = 0; i < period; ++i) {
         sum += input[i];
     }
-    *output++ = input[period-1-back] - (sum * div);
+    *output++ = input[period-1-back] - (sum * scale);
     for (i = period; i < size; ++i) {
         sum += input[i];
         sum -= input[i-period];
-        *output++ = input[i-back] - (sum * div);
+        *output++ = input[i-back] - (sum * scale);
     }
     assert(output - outputs[0] == size - ti_dpo_start(options));
     return TI_OKAY;
@@ -2681,24 +2684,24 @@ int ti_dx(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REA
     return TI_OKAY;
 }
 int ti_edecay_start(TI_REAL const *options) {
-    options=options;
+    (void)options;
     return 0;
 }
 int ti_edecay(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) {
     const TI_REAL *input = inputs[0];
     const int period = (int)options[0];
     TI_REAL *output = outputs[0];
-    const TI_REAL div = 1.0 - 1.0 / period;
+    const TI_REAL scale = 1.0 - 1.0 / period;
     *output++ = input[0];
     int i;
     for (i = 1; i < size; ++i) {
-        TI_REAL d = output[-1] * div;
+        TI_REAL d = output[-1] * scale;
         *output++ = input[i] > d ? input[i] : d;
     }
     return TI_OKAY;
 }
 int ti_ema_start(TI_REAL const *options) {
-    options=options;
+    (void)options;
     return 0;
 }
 int ti_ema(int size, TI_REAL const * const *inputs, TI_REAL const *options, TI_REAL * const *outputs) {
@@ -2719,14 +2722,14 @@ int ti_ema(int size, TI_REAL const * const *inputs, TI_REAL const *options, TI_R
     return TI_OKAY;
 }
 int ti_emv_start(TI_REAL const *options) {
-    options=options;
+    (void)options;
     return 1;
 }
 int ti_emv(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) {
     const TI_REAL *high = inputs[0];
     const TI_REAL *low = inputs[1];
     const TI_REAL *volume = inputs[2];
-    options=options;
+    (void)options;
     TI_REAL *output = outputs[0];
     if (size <= ti_emv_start(options)) return TI_OKAY;
     TI_REAL last = (high[0] + low[0]) * 0.5;
@@ -2740,7 +2743,7 @@ int ti_emv(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_RE
     assert(output - outputs[0] == size - ti_emv_start(options));
     return TI_OKAY;
 }
-int ti_exp_start(TI_REAL const *options) { options = options; return 0; } int ti_exp(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; options = options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (exp(in1[i])); } return TI_OKAY; }
+int ti_exp_start(TI_REAL const *options) { (void)options; return 0; } int ti_exp(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; (void)options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (exp(in1[i])); } return TI_OKAY; }
 int ti_fisher_start(TI_REAL const *options) {
     return (int)options[0]-1;
 }
@@ -2805,7 +2808,7 @@ int ti_fisher(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI
     assert(signal - outputs[1] == size - ti_fisher_start(options));
     return TI_OKAY;
 }
-int ti_floor_start(TI_REAL const *options) { options = options; return 0; } int ti_floor(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; options = options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (floor(in1[i])); } return TI_OKAY; }
+int ti_floor_start(TI_REAL const *options) { (void)options; return 0; } int ti_floor(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; (void)options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (floor(in1[i])); } return TI_OKAY; }
 int ti_fosc_start(TI_REAL const *options) {
     return (int)options[0];
 }
@@ -2915,7 +2918,7 @@ int ti_kama(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_R
     return TI_OKAY;
 }
 int ti_kvo_start(TI_REAL const *options) {
-    options=options;
+    (void)options;
     return 1;
 }
 int ti_kvo(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) {
@@ -3016,8 +3019,8 @@ int ti_linregslope(int size, TI_REAL const *const *inputs, TI_REAL const *option
     assert(output - outputs[0] == size - ti_linregslope_start(options));
     return TI_OKAY;
 }
-int ti_ln_start(TI_REAL const *options) { options = options; return 0; } int ti_ln(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; options = options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (log(in1[i])); } return TI_OKAY; }
-int ti_log10_start(TI_REAL const *options) { options = options; return 0; } int ti_log10(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; options = options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (log10(in1[i])); } return TI_OKAY; }
+int ti_ln_start(TI_REAL const *options) { (void)options; return 0; } int ti_ln(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; (void)options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (log(in1[i])); } return TI_OKAY; }
+int ti_log10_start(TI_REAL const *options) { (void)options; return 0; } int ti_log10(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; (void)options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (log10(in1[i])); } return TI_OKAY; }
 int ti_macd_start(TI_REAL const *options) {
     const int long_period = (int)options[1];
     return (long_period-1);
@@ -3066,14 +3069,14 @@ int ti_macd(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_R
     return TI_OKAY;
 }
 int ti_marketfi_start(TI_REAL const *options) {
-    options=options;
+    (void)options;
     return 0;
 }
 int ti_marketfi(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) {
     const TI_REAL *high = inputs[0];
     const TI_REAL *low = inputs[1];
     const TI_REAL *volume = inputs[2];
-    options=options;
+    (void)options;
     TI_REAL *output = outputs[0];
     if (size <= ti_marketfi_start(options)) return TI_OKAY;
     int i;
@@ -3161,7 +3164,7 @@ int ti_md(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REA
     const TI_REAL *input = inputs[0];
     const int period = (int)options[0];
     TI_REAL *output = outputs[0];
-    const TI_REAL div = 1.0 / period;
+    const TI_REAL scale = 1.0 / period;
     if (period < 1) return TI_INVALID_OPTION;
     if (size <= ti_md_start(options)) return TI_OKAY;
     TI_REAL sum = 0;
@@ -3170,26 +3173,26 @@ int ti_md(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REA
         const TI_REAL today = input[i];
         sum += today;
         if (i >= period) sum -= input[i-period];
-        const TI_REAL avg = sum * div;
+        const TI_REAL avg = sum * scale;
         if (i >= period - 1) {
             TI_REAL acc = 0;
             for (j = 0; j < period; ++j) {
                 acc += fabs(avg - input[i-j]);
             }
-            *output++ = acc * div;
+            *output++ = acc * scale;
         }
     }
     assert(output - outputs[0] == size - ti_md_start(options));
     return TI_OKAY;
 }
 int ti_medprice_start(TI_REAL const *options) {
-    options=options;
+    (void)options;
     return 0;
 }
 int ti_medprice(int size, TI_REAL const * const *inputs, TI_REAL const *options, TI_REAL * const *outputs) {
     const TI_REAL *high = inputs[0];
     const TI_REAL *low = inputs[1];
-    options=options;
+    (void)options;
     TI_REAL *output = outputs[0];
     int i;
     for (i = 0; i < size; ++i) {
@@ -3325,7 +3328,7 @@ int ti_msw(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_RE
     assert(lead - outputs[1] == size - ti_msw_start(options));
     return TI_OKAY;
 }
-int ti_mul_start(TI_REAL const *options) { options = options; return 0; } int ti_mul(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; const TI_REAL *in2 = inputs[1]; options = options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (in1[i] * in2[i]); } return TI_OKAY; }
+int ti_mul_start(TI_REAL const *options) { (void)options; return 0; } int ti_mul(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; const TI_REAL *in2 = inputs[1]; (void)options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (in1[i] * in2[i]); } return TI_OKAY; }
 int ti_natr_start(TI_REAL const *options) {
     return (int)options[0]-1;
 }
@@ -3357,13 +3360,13 @@ int ti_natr(int size, TI_REAL const * const *inputs, TI_REAL const *options, TI_
     return TI_OKAY;
 }
 int ti_nvi_start(TI_REAL const *options) {
-    options=options;
+    (void)options;
     return 0;
 }
 int ti_nvi(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) {
     const TI_REAL *close = inputs[0];
     const TI_REAL *volume = inputs[1];
-    options=options;
+    (void)options;
     TI_REAL *output = outputs[0];
     if (size <= ti_nvi_start(options)) return TI_OKAY;
     TI_REAL nvi = 1000;
@@ -3379,13 +3382,13 @@ int ti_nvi(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_RE
     return TI_OKAY;
 }
 int ti_obv_start(TI_REAL const *options) {
-    options=options;
+    (void)options;
     return 0;
 }
 int ti_obv(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) {
     const TI_REAL *close = inputs[0];
     const TI_REAL *volume = inputs[1];
-    options=options;
+    (void)options;
     TI_REAL *output = outputs[0];
     TI_REAL sum = 0;
     *output++ = sum;
@@ -3404,7 +3407,7 @@ int ti_obv(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_RE
     return TI_OKAY;
 }
 int ti_ppo_start(TI_REAL const *options) {
-    options=options;
+    (void)options;
     return 1;
 }
 int ti_ppo(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) {
@@ -3431,7 +3434,7 @@ int ti_ppo(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_RE
     return TI_OKAY;
 }
 int ti_psar_start(TI_REAL const *options) {
-    options=options;
+    (void)options;
     return 1;
 }
 int ti_psar(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) {
@@ -3490,13 +3493,13 @@ int ti_psar(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_R
     return TI_OKAY;
 }
 int ti_pvi_start(TI_REAL const *options) {
-    options=options;
+    (void)options;
     return 0;
 }
 int ti_pvi(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) {
     const TI_REAL *close = inputs[0];
     const TI_REAL *volume = inputs[1];
-    options=options;
+    (void)options;
     TI_REAL *output = outputs[0];
     if (size <= ti_pvi_start(options)) return TI_OKAY;
     TI_REAL pvi = 1000;
@@ -3519,7 +3522,7 @@ int ti_qstick(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI
     const TI_REAL *close = inputs[1];
     TI_REAL *output = outputs[0];
     const int period = (int)options[0];
-    const TI_REAL div = 1.0 / period;
+    const TI_REAL scale = 1.0 / period;
     if (period < 1) return TI_INVALID_OPTION;
     if (size <= ti_qstick_start(options)) return TI_OKAY;
     TI_REAL sum = 0;
@@ -3527,11 +3530,11 @@ int ti_qstick(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI
     for (i = 0; i < period; ++i) {
         sum += close[i] - open[i];
     }
-    *output++ = sum * div;
+    *output++ = sum * scale;
     for (i = period; i < size; ++i) {
         sum += close[i] - open[i];
         sum -= close[i-period] - open[i-period];
-        *output++ = sum * div;
+        *output++ = sum * scale;
     }
     assert(output - outputs[0] == size - ti_qstick_start(options));
     return TI_OKAY;
@@ -3568,7 +3571,7 @@ int ti_rocr(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_R
     assert(output - outputs[0] == size - ti_rocr_start(options));
     return TI_OKAY;
 }
-int ti_round_start(TI_REAL const *options) { options = options; return 0; } int ti_round(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; options = options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (floor(in1[i] + 0.5)); } return TI_OKAY; }
+int ti_round_start(TI_REAL const *options) { (void)options; return 0; } int ti_round(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; (void)options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (floor(in1[i] + 0.5)); } return TI_OKAY; }
 int ti_rsi_start(TI_REAL const *options) {
     return (int)options[0];
 }
@@ -3600,8 +3603,8 @@ int ti_rsi(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_RE
     assert(output - outputs[0] == size - ti_rsi_start(options));
     return TI_OKAY;
 }
-int ti_sin_start(TI_REAL const *options) { options = options; return 0; } int ti_sin(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; options = options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (sin(in1[i])); } return TI_OKAY; }
-int ti_sinh_start(TI_REAL const *options) { options = options; return 0; } int ti_sinh(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; options = options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (sinh(in1[i])); } return TI_OKAY; }
+int ti_sin_start(TI_REAL const *options) { (void)options; return 0; } int ti_sin(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; (void)options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (sin(in1[i])); } return TI_OKAY; }
+int ti_sinh_start(TI_REAL const *options) { (void)options; return 0; } int ti_sinh(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; (void)options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (sinh(in1[i])); } return TI_OKAY; }
 int ti_sma_start(TI_REAL const *options) {
     return (int)options[0]-1;
 }
@@ -3609,7 +3612,7 @@ int ti_sma(int size, TI_REAL const * const *inputs, TI_REAL const *options, TI_R
     const TI_REAL *input = inputs[0];
     const int period = (int)options[0];
     TI_REAL *output = outputs[0];
-    const TI_REAL div = 1.0 / period;
+    const TI_REAL scale = 1.0 / period;
     if (period < 1) return TI_INVALID_OPTION;
     if (size <= ti_sma_start(options)) return TI_OKAY;
     TI_REAL sum = 0;
@@ -3617,16 +3620,16 @@ int ti_sma(int size, TI_REAL const * const *inputs, TI_REAL const *options, TI_R
     for (i = 0; i < period; ++i) {
         sum += input[i];
     }
-    *output++ = sum * div;
+    *output++ = sum * scale;
     for (i = period; i < size; ++i) {
         sum += input[i];
         sum -= input[i-period];
-        *output++ = sum * div;
+        *output++ = sum * scale;
     }
     assert(output - outputs[0] == size - ti_sma_start(options));
     return TI_OKAY;
 }
-int ti_sqrt_start(TI_REAL const *options) { options = options; return 0; } int ti_sqrt(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; options = options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (sqrt(in1[i])); } return TI_OKAY; }
+int ti_sqrt_start(TI_REAL const *options) { (void)options; return 0; } int ti_sqrt(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; (void)options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (sqrt(in1[i])); } return TI_OKAY; }
 int ti_stddev_start(TI_REAL const *options) {
     return (int)options[0]-1;
 }
@@ -3634,7 +3637,7 @@ int ti_stddev(int size, TI_REAL const * const *inputs, TI_REAL const *options, T
     const TI_REAL *input = inputs[0];
     const int period = (int)options[0];
     TI_REAL *output = outputs[0];
-    const TI_REAL div = 1.0 / period;
+    const TI_REAL scale = 1.0 / period;
     if (period < 1) return TI_INVALID_OPTION;
     if (size <= ti_stddev_start(options)) return TI_OKAY;
     TI_REAL sum = 0;
@@ -3645,7 +3648,7 @@ int ti_stddev(int size, TI_REAL const * const *inputs, TI_REAL const *options, T
         sum2 += input[i] * input[i];
     }
     {
-        TI_REAL s2s2 = (sum2 * div - (sum * div) * (sum * div));
+        TI_REAL s2s2 = (sum2 * scale - (sum * scale) * (sum * scale));
         if (s2s2 > 0.0) s2s2 = sqrt(s2s2);
         *output++ = s2s2;
     }
@@ -3654,7 +3657,7 @@ int ti_stddev(int size, TI_REAL const * const *inputs, TI_REAL const *options, T
         sum2 += input[i] * input[i];
         sum -= input[i-period];
         sum2 -= input[i-period] * input[i-period];
-        TI_REAL s2s2 = (sum2 * div - (sum * div) * (sum * div));
+        TI_REAL s2s2 = (sum2 * scale - (sum * scale) * (sum * scale));
         if (s2s2 > 0.0) s2s2 = sqrt(s2s2);
         *output++ = s2s2;
     }
@@ -3668,7 +3671,7 @@ int ti_stderr(int size, TI_REAL const * const *inputs, TI_REAL const *options, T
     const TI_REAL *input = inputs[0];
     const int period = (int)options[0];
     TI_REAL *output = outputs[0];
-    const TI_REAL div = 1.0 / period;
+    const TI_REAL scale = 1.0 / period;
     if (period < 1) return TI_INVALID_OPTION;
     if (size <= ti_stderr_start(options)) return TI_OKAY;
     TI_REAL sum = 0;
@@ -3680,7 +3683,7 @@ int ti_stderr(int size, TI_REAL const * const *inputs, TI_REAL const *options, T
         sum2 += input[i] * input[i];
     }
     {
-        TI_REAL s2s2 = (sum2 * div - (sum * div) * (sum * div));
+        TI_REAL s2s2 = (sum2 * scale - (sum * scale) * (sum * scale));
         if (s2s2 > 0.0) s2s2 = sqrt(s2s2);
         *output++ = mul * s2s2;
     }
@@ -3689,7 +3692,7 @@ int ti_stderr(int size, TI_REAL const * const *inputs, TI_REAL const *options, T
         sum2 += input[i] * input[i];
         sum -= input[i-period];
         sum2 -= input[i-period] * input[i-period];
-        TI_REAL s2s2 = (sum2 * div - (sum * div) * (sum * div));
+        TI_REAL s2s2 = (sum2 * scale - (sum * scale) * (sum * scale));
         if (s2s2 > 0.0) s2s2 = sqrt(s2s2);
         *output++ = mul * s2s2;
     }
@@ -3776,7 +3779,7 @@ int ti_stoch(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_
     assert(stoch_ma - outputs[1] == size - ti_stoch_start(options));
     return TI_OKAY;
 }
-int ti_sub_start(TI_REAL const *options) { options = options; return 0; } int ti_sub(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; const TI_REAL *in2 = inputs[1]; options = options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (in1[i] - in2[i]); } return TI_OKAY; }
+int ti_sub_start(TI_REAL const *options) { (void)options; return 0; } int ti_sub(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; const TI_REAL *in2 = inputs[1]; (void)options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (in1[i] - in2[i]); } return TI_OKAY; }
 int ti_sum_start(TI_REAL const *options) {
     return (int)options[0]-1;
 }
@@ -3800,8 +3803,8 @@ int ti_sum(int size, TI_REAL const * const *inputs, TI_REAL const *options, TI_R
     assert(output - outputs[0] == size - ti_sum_start(options));
     return TI_OKAY;
 }
-int ti_tan_start(TI_REAL const *options) { options = options; return 0; } int ti_tan(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; options = options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (tan(in1[i])); } return TI_OKAY; }
-int ti_tanh_start(TI_REAL const *options) { options = options; return 0; } int ti_tanh(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; options = options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (tanh(in1[i])); } return TI_OKAY; }
+int ti_tan_start(TI_REAL const *options) { (void)options; return 0; } int ti_tan(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; (void)options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (tan(in1[i])); } return TI_OKAY; }
+int ti_tanh_start(TI_REAL const *options) { (void)options; return 0; } int ti_tanh(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; (void)options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = (tanh(in1[i])); } return TI_OKAY; }
 int ti_tema_start(TI_REAL const *options) {
     const int period = (int)options[0];
     return (period-1) * 3;
@@ -3840,17 +3843,17 @@ int ti_tema(int size, TI_REAL const * const *inputs, TI_REAL const *options, TI_
     assert(output - outputs[0] == size - ti_tema_start(options));
     return TI_OKAY;
 }
-int ti_todeg_start(TI_REAL const *options) { options = options; return 0; } int ti_todeg(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; options = options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = ((in1[i] * (180.0 / 3.14159265358979323846))); } return TI_OKAY; }
-int ti_torad_start(TI_REAL const *options) { options = options; return 0; } int ti_torad(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; options = options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = ((in1[i] * (3.14159265358979323846 / 180.0))); } return TI_OKAY; }
+int ti_todeg_start(TI_REAL const *options) { (void)options; return 0; } int ti_todeg(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; (void)options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = ((in1[i] * (180.0 / 3.14159265358979323846))); } return TI_OKAY; }
+int ti_torad_start(TI_REAL const *options) { (void)options; return 0; } int ti_torad(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; (void)options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = ((in1[i] * (3.14159265358979323846 / 180.0))); } return TI_OKAY; }
 int ti_tr_start(TI_REAL const *options) {
-    options = options;
+    (void)options;
     return 0;
 }
 int ti_tr(int size, TI_REAL const * const *inputs, TI_REAL const *options, TI_REAL * const *outputs) {
     const TI_REAL *high = inputs[0];
     const TI_REAL *low = inputs[1];
     const TI_REAL *close = inputs[2];
-    options = options;
+    (void)options;
     TI_REAL *output = outputs[0];
     TI_REAL truerange;
     output[0] = high[0] - low[0];
@@ -3942,7 +3945,7 @@ int ti_trix(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_R
     assert(output - outputs[0] == size - ti_trix_start(options));
     return TI_OKAY;
 }
-int ti_trunc_start(TI_REAL const *options) { options = options; return 0; } int ti_trunc(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; options = options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = ((int)(in1[i])); } return TI_OKAY; }
+int ti_trunc_start(TI_REAL const *options) { (void)options; return 0; } int ti_trunc(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) { const TI_REAL *in1 = inputs[0]; (void)options; TI_REAL *output = outputs[0]; int i; for (i = 0; i < size; ++i) { output[i] = ((int)(in1[i])); } return TI_OKAY; }
 int ti_tsf_start(TI_REAL const *options) {
     return (int)options[0]-1;
 }
@@ -3957,14 +3960,14 @@ int ti_tsf(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_RE
     return TI_OKAY;
 }
 int ti_typprice_start(TI_REAL const *options) {
-    options = options;
+    (void)options;
     return 0;
 }
 int ti_typprice(int size, TI_REAL const * const *inputs, TI_REAL const *options, TI_REAL * const *outputs) {
     const TI_REAL *high = inputs[0];
     const TI_REAL *low = inputs[1];
     const TI_REAL *close = inputs[2];
-    options = options;
+    (void)options;
     TI_REAL *output = outputs[0];
     int i;
     for (i = 0; i < size; ++i) {
@@ -4035,7 +4038,7 @@ int ti_var(int size, TI_REAL const * const *inputs, TI_REAL const *options, TI_R
     const TI_REAL *input = inputs[0];
     const int period = (int)options[0];
     TI_REAL *output = outputs[0];
-    const TI_REAL div = 1.0 / period;
+    const TI_REAL scale = 1.0 / period;
     if (period < 1) return TI_INVALID_OPTION;
     if (size <= ti_var_start(options)) return TI_OKAY;
     TI_REAL sum = 0;
@@ -4045,13 +4048,13 @@ int ti_var(int size, TI_REAL const * const *inputs, TI_REAL const *options, TI_R
         sum += input[i];
         sum2 += input[i] * input[i];
     }
-    *output++ = sum2 * div - (sum * div) * (sum * div);
+    *output++ = sum2 * scale - (sum * scale) * (sum * scale);
     for (i = period; i < size; ++i) {
         sum += input[i];
         sum2 += input[i] * input[i];
         sum -= input[i-period];
         sum2 -= input[i-period] * input[i-period];
-        *output++ = sum2 * div - (sum * div) * (sum * div);
+        *output++ = sum2 * scale - (sum * scale) * (sum * scale);
     }
     assert(output - outputs[0] == size - ti_var_start(options));
     return TI_OKAY;
@@ -4190,7 +4193,7 @@ int ti_volatility(int size, TI_REAL const * const *inputs, TI_REAL const *option
     const TI_REAL *input = inputs[0];
     TI_REAL *output = outputs[0];
     const int period = (int)options[0];
-    const TI_REAL div = 1.0 / period;
+    const TI_REAL scale = 1.0 / period;
     const TI_REAL annual = sqrt(252);
     if (period < 1) return TI_INVALID_OPTION;
     if (size <= ti_volatility_start(options)) return TI_OKAY;
@@ -4202,7 +4205,7 @@ int ti_volatility(int size, TI_REAL const * const *inputs, TI_REAL const *option
         sum += c;
         sum2 += c * c;
     }
-    *output++ = sqrt(sum2 * div - (sum * div) * (sum * div)) * annual;
+    *output++ = sqrt(sum2 * scale - (sum * scale) * (sum * scale)) * annual;
     for (i = period+1; i < size; ++i) {
         const TI_REAL c = (input[i]/input[i-1]-1.0);
         sum += c;
@@ -4210,7 +4213,7 @@ int ti_volatility(int size, TI_REAL const * const *inputs, TI_REAL const *option
         const TI_REAL cp = (input[i-period]/input[i-period-1]-1.0);
         sum -= cp;
         sum2 -= cp * cp;
-        *output++ = sqrt(sum2 * div - (sum * div) * (sum * div)) * annual;
+        *output++ = sqrt(sum2 * scale - (sum * scale) * (sum * scale)) * annual;
     }
     assert(output - outputs[0] == size - ti_volatility_start(options));
     return TI_OKAY;
@@ -4283,14 +4286,14 @@ int ti_vwma(int size, TI_REAL const * const *inputs, TI_REAL const *options, TI_
     return TI_OKAY;
 }
 int ti_wad_start(TI_REAL const *options) {
-    options = options;
+    (void)options;
     return 1;
 }
 int ti_wad(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs) {
     const TI_REAL *high = inputs[0];
     const TI_REAL *low = inputs[1];
     const TI_REAL *close = inputs[2];
-    options = options;
+    (void)options;
     if (size <= ti_wad_start(options)) return TI_OKAY;
     TI_REAL *output = outputs[0];
     TI_REAL sum = 0;
@@ -4311,14 +4314,14 @@ int ti_wad(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_RE
     return TI_OKAY;
 }
 int ti_wcprice_start(TI_REAL const *options) {
-    options = options;
+    (void)options;
     return 0;
 }
 int ti_wcprice(int size, TI_REAL const * const *inputs, TI_REAL const *options, TI_REAL * const *outputs) {
     const TI_REAL *high = inputs[0];
     const TI_REAL *low = inputs[1];
     const TI_REAL *close = inputs[2];
-    options = options;
+    (void)options;
     TI_REAL *output = outputs[0];
     int i;
     for (i = 0; i < size; ++i) {
@@ -4468,6 +4471,8 @@ ti_buffer *ti_buffer_new(int size) {
 void ti_buffer_free(ti_buffer *buffer) {
     free(buffer);
 }
+const char* ti_version() {return TI_VERSION;}
+long int ti_build() {return TI_BUILD;}
 struct ti_indicator_info ti_indicators[] = {
     {"abs", "Vector Absolute Value", ti_abs_start, ti_abs, TI_TYPE_SIMPLE, 1, 0, 1, {"real",0}, {"",0}, {"abs",0}},
     {"acos", "Vector Arccosine", ti_acos_start, ti_acos, TI_TYPE_SIMPLE, 1, 0, 1, {"real",0}, {"",0}, {"acos",0}},

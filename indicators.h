@@ -1,7 +1,7 @@
 /*
  * Tulip Indicators
  * https://tulipindicators.org/
- * Copyright (c) 2010-2016 Tulip Charts LLC
+ * Copyright (c) 2010-2018 Tulip Charts LLC
  * Lewis Van Winkle (LV@tulipcharts.org)
  *
  * This file is part of Tulip Indicators.
@@ -24,8 +24,8 @@
 
 /*
  *
- * Version 0.8.1
- * Header Build 1482259567
+ * Version 0.8.2
+ * Header Build 1521563742
  *
  */
 
@@ -39,8 +39,11 @@
 #define __TI_INDICATORS_H__
 
 
-#define TI_VERSION "0.8.1"
-#define TI_BUILD 1482259567
+#define TI_VERSION "0.8.2"
+#define TI_BUILD 1521563742
+
+const char* ti_version();
+long int ti_build();
 
 #ifndef TI_SKIP_SYSTEM_HEADERS
 #include <math.h>
