@@ -31,8 +31,8 @@
 
 /*
  *
- * Version 0.8.3
- * Header Build 1535408446
+ * Version 0.8.4
+ * Header Build 1537377628
  *
  */
 
@@ -46,8 +46,8 @@
 #define __TI_INDICATORS_H__
 
 
-#define TI_VERSION "0.8.3"
-#define TI_BUILD 1535408446
+#define TI_VERSION "0.8.4"
+#define TI_BUILD 1537377628
 
 
 #ifndef TI_SKIP_SYSTEM_HEADERS
@@ -3833,7 +3833,7 @@ int ti_stochrsi(int size, TI_REAL const *const *inputs, TI_REAL const *options, 
             max = r;
             maxi = rsi->index;
         } else if (maxi == rsi->index) {
-            max = 0.0;
+            max = r;
             int j;
             for (j = 0; j < rsi->size; ++j) {
                 if (j == rsi->index) continue;
@@ -3847,7 +3847,7 @@ int ti_stochrsi(int size, TI_REAL const *const *inputs, TI_REAL const *options, 
             min = r;
             mini = rsi->index;
         } else if (mini == rsi->index) {
-            min = 100.0;
+            min = r;
             int j;
             for (j = 0; j < rsi->size; ++j) {
                 if (j == rsi->index) continue;
@@ -3859,7 +3859,12 @@ int ti_stochrsi(int size, TI_REAL const *const *inputs, TI_REAL const *options, 
         }
         ti_buffer_qpush(rsi, r);
         if (i > period*2 - 2) {
-            *output++ = (r - min) / (max - min);
+            const TI_REAL diff = max - min;
+            if (diff == 0.0) {
+                *output++ = 0.0;
+            } else {
+                *output++ = (r - min) / (diff);
+            }
         }
     }
     ti_buffer_free(rsi);
