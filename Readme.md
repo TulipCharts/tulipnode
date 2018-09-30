@@ -22,7 +22,8 @@ It should work on Windows, Os X, and Linux. Node versions 4, 5, 6, 7, 8, and 9
 are tested and supported on each platform.
 
 Note that pre-compiled binaries are available for Windows. For other platforms
-you will need a C++ build environment installed.
+you will need a C++ build environment installed. On Linux based distributions
+this can be achieved by installing `build-essential` package.
 
 You can force building from source with:
 
