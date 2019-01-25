@@ -26,7 +26,7 @@
   "dependencies": {
     "bindings": "^1.3.0",
     "nan": "^2.10.0",
-    "node-pre-gyp": "^0.10.3",
+    "node-pre-gyp": "^0.12.0",
     "minctest": "0.0.x"
   },
   "devDependencies": {
