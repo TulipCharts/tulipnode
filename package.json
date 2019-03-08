@@ -1,7 +1,7 @@
 {
   "author": "Lewis Van Winkle",
   "name": "tulind",
-  "version": "0.8.14",
+  "version": "0.8.15",
   "description": "Tulip Indicators Wrapper Providing Over 100 Technical Analysis Functions",
   "main": "index.js",
   "gypfile": true,
