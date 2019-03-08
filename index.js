@@ -31,6 +31,8 @@ var indicators = tulind.indicators;
 for (var key in indicators) {
   var ind = indicators[key];
 
+  if (typeof ind.indicator == 'function') break;
+
   ind.indicator = make_call(ind);
   ind.start = make_start(ind);
   delete ind.index;
