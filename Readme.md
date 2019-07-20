@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/TulipCharts/tulipnode.svg?branch=master)](https://travis-ci.org/TulipCharts/tulipnode)
 [![Build Status](https://ci.appveyor.com/api/projects/status/ps9l8w7fxi81v2q5/branch/master?svg=true)](https://ci.appveyor.com/project/codeplea/tulipnode)
+[![npm](https://img.shields.io/npm/dw/tulind.svg)](https://www.npmjs.com/package/tulind)
 
 # Tulip Node
 
