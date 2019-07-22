@@ -41,12 +41,11 @@ before_install:
 
 install:
   - npm install --build-from-source
-  - COMMIT_MESSAGE=$(git log --format=%B --no-merges -n 1 | tr -d '\n')
-  - echo $(COMMIT_MESSAGE)
-  - if [[ ${COMMIT_MESSAGE} =~ "[publish binary]" ]]; then node-pre-gyp package unpublish publish info; fi;
 
 script:
   - node --version
   - npm --version
   - npm test
   - node example.js
+  - COMMIT_MESSAGE=$(git log --format=%B --no-merges -n 1 | tr -d '\n')
+  - if [[ ${COMMIT_MESSAGE} =~ "[publish binary]" ]]; then node-pre-gyp package unpublish publish info; fi;
