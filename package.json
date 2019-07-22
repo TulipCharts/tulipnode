@@ -32,7 +32,6 @@
   "devDependencies": {
       "aws-sdk": "2.x"
   },
-  "bundledDependencies": ["node-pre-gyp"],
   "scripts": {
       "install": "node-pre-gyp install --fallback-to-build",
       "test": "node test.js"
