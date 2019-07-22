@@ -1,7 +1,7 @@
 /*
  * Tulip Indicators Node.js Binding
  * https://tulipindicators.org/
- * Copyright (c) 2016-2018 Tulip Charts LLC
+ * Copyright (c) 2016-2019 Tulip Charts LLC
  * Lewis Van Winkle (LV@tulipcharts.org)
  *
  * This file is part of Tulip Indicators.
@@ -32,10 +32,12 @@ static double *get_array(Local<Array> input, int offset) {
     const int size = input->Length() - offset;
 
     double *ret = (double*)malloc(sizeof(double) * size);
+    //TODO check ret
 
     int i;
     for (i = 0; i < size; ++i) {
-        ret[i] = Nan::Get(input, i + offset).ToLocalChecked()->NumberValue();
+        Nan::Maybe<double> d = Nan::To<double>(Nan::Get(input, i + offset).ToLocalChecked());
+        ret[i] = d.FromMaybe(0.0);
     }
 
     return ret;
@@ -59,7 +61,7 @@ NAN_METHOD(startbyindex) {
         return;
     }
 
-    const int index = (int)info[0]->NumberValue();
+    const int index = Nan::To<int>(info[0]).FromMaybe(-1);
     if (index < 0 || index > TI_INDICATOR_COUNT) {
         Nan::ThrowTypeError("Invalid indicator index.");
         return;
@@ -69,7 +71,7 @@ NAN_METHOD(startbyindex) {
 
 
     Local<Array> options = Local<Array>::Cast(info[1]);
-    if (ind->options != options->Length()) {
+    if ((unsigned int)ind->options != options->Length()) {
         Nan::ThrowTypeError("Invalid number of options.");
         return;
     }
@@ -113,7 +115,7 @@ NAN_METHOD(callbyindex) {
         return;
     }
 
-    const int index = (int)info[0]->NumberValue();
+    const int index = Nan::To<int>(info[0]).FromMaybe(-1);
     if (index < 0 || index > TI_INDICATOR_COUNT) {
         Nan::ThrowTypeError("Invalid indicator index.");
         return;
@@ -124,14 +126,14 @@ NAN_METHOD(callbyindex) {
 
 
     Local<Array> inputs = Local<Array>::Cast(info[1]);
-    if (ind->inputs != inputs->Length()) {
+    if ((unsigned int)ind->inputs != inputs->Length()) {
         Nan::ThrowTypeError("Invalid number of inputs.");
         return;
     }
 
 
     Local<Array> options = Local<Array>::Cast(info[2]);
-    if (ind->options != options->Length()) {
+    if ((unsigned int)ind->options != options->Length()) {
         Nan::ThrowTypeError("Invalid number of options.");
         return;
     }
@@ -233,7 +235,8 @@ NAN_METHOD(callbyindex) {
 
 
     v8::Local<v8::Function> callbackHandle = info[3].As<v8::Function>();
-    Nan::MakeCallback(Nan::GetCurrentContext()->Global(), callbackHandle, 2, cb_argv);
+    Nan::AsyncResource cb("tulind-callback");
+    cb.runInAsyncScope(Nan::GetCurrentContext()->Global(), callbackHandle, 2, cb_argv);
 }
 
 

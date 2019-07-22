@@ -14,6 +14,11 @@ env:
     - NODE_VERSION="9"
     - NODE_VERSION="10"
     - NODE_VERSION="11"
+    - NODE_VERSION="12"
+
+  global:
+    - secure: "TDkceX5iu2QEjNyqNfAIo/HbsXD9xBowLpnetQgyTUyKXQiMsegSAJdZKUr+iQvj7lXXjp4Yn4mU+ifjr6bXG5GHss01zIl1LywFmLn8Ei0p4hlPg/3OgBxlAoUAwHmlywAdvo1rwNJo/Ct8zIGo8jYR4nXst1yLaRUbhnkD81lcz0Z/Z+UCCJNSPubzs93IolZc2TaHlgEM2yZekxFAKN1nTZrCg1Mm4+ak8NPmysco+ALLm1+uT4V9/pzOJQgVU7GRKhuVCdqYv0HxELQikuq86GBQb0RVHUgpQRr3UU0tSob6ZOUTSc7AmMC0y1meZRD5wari8ulD5wMv0C460RkRoh+md+h8tZKy2edeSr3qxyQznXTw57IV47bQgnAg29DVV3Ry3av/3d5hJ7Pc195R8nBdyGCx1XLtS73qX5RaXsgcrbL3lhtFOh1Oi9hoLsRKuNqpGUsP2C1Kx9itOPGRDUuPtAC8idTVbjUPiZ6IL7c0ZMrm8rCd6KhPJGEgcF0llJBQwyZQbNLgqoWyOGFXSeWYzqdasAhRXSgqvSnolT9aQM2lGY7iQQgWmRQ6bGy7T1Pn/WMDaqoILzsp15GYnpkUeLWBapk18SoDgFSmsTXJmGvqqO6s4wv8GRkHz/6Og3Ht0SXZdWil3zumc2Z+NLfGr8Ts86X/sKXCkEU="
+    - secure: "C80PJQj2br04PrS8dl0obuGyqgCC63ezz/ayYL9WlpETNmlVpcsADsjXh2+TOtp2h3XED6babwD2bpeZhvDCRE75rCpLIU+fiGOY60N9FxArBwhpgD54EGBjUHbngS2aDuI7RSpF8oBw6oWjpAbzNVMHpn9SOAFi9wt2JrDcO6NbmN/KTYOQBnDiXgWENIwkh3VFAM5zx0B20D9b+QvjGCW5MK1l8BkG/9g8PxMJXdeqtdrdxw12UYQeDaHgMMgloQeE6+49r1HXRy+47lMe6Cm3lBHEY2G3xL7B82bHjljesrSC8Lnf9wHC+5UUIrv8PxdYnjoOSSdKIMd5Vqjd8I0Bk+oqMZkJRImxzduRKqEOYHxzXS/foT7JENMtnRVFcBm1AIvaFp53+3C6wYwUFJrv0XsaPeeJlnYu7ItSu2GTOKjzHLLqqoZU3OPIDXVqfWE0S41VZ8bK1fCN+73ty0aQM9QBjANCUAvk+40IGWlY8jWsYTCWxqHjxouGoetlKboCvpnUVLRQWsRn5goMXVO1yIA/8yPv9b6VozRrQPY9+6wnDcVyhdFI46Hvumih7wuW5ThbigM4VMWyET5jeE9yTEd7wN9RgtwbDESBIhYqxA3vMDw0JEVvrYImvCQZgYkNbGb8+iEJ/MQ8WfmvINQB+zCszXalSA8yJjNsQpw="
 
 sudo: false
 
@@ -32,9 +37,12 @@ before_install:
   - source ~/.nvm/nvm.sh
   - nvm install $NODE_VERSION
   - nvm use $NODE_VERSION
+  - export PATH=$(pwd)/node_modules/.bin:${PATH}
 
 install:
   - npm install --build-from-source
+  - COMMIT_MESSAGE=$(git log --format=%B --no-merges -n 1 | tr -d '\n')
+  - if [[ ${COMMIT_MESSAGE} =~ "[publish binary]" ]]; then node-pre-gyp publish; fi;
 
 script:
   - node --version

@@ -24,15 +24,14 @@
   ],
   "license": "LGPL-3.0",
   "dependencies": {
-    "bindings": "^1.3.0",
-    "nan": "^2.10.0",
-    "node-pre-gyp": "^0.12.0",
+    "bindings": "^1.5.0",
+    "nan": "^2.14.0",
+    "node-pre-gyp": "^0.13.0",
     "minctest": "0.0.x"
   },
   "devDependencies": {
       "aws-sdk": "2.x"
   },
-  "bundledDependencies": ["node-pre-gyp"],
   "scripts": {
       "install": "node-pre-gyp install --fallback-to-build",
       "test": "node test.js"
