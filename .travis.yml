@@ -37,9 +37,12 @@ before_install:
   - source ~/.nvm/nvm.sh
   - nvm install $NODE_VERSION
   - nvm use $NODE_VERSION
+  - export PATH=$(pwd)/node_modules/.bin:${PATH}
 
 install:
   - npm install --build-from-source
+  - COMMIT_MESSAGE=$(git log --format=%B --no-merges -n 1 | tr -d '\n')
+  - if [[ ${COMMIT_MESSAGE} =~ "[publish binary]" ]]; then node-pre-gyp publish; fi;
 
 script:
   - node --version
