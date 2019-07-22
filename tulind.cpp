@@ -1,7 +1,7 @@
 /*
  * Tulip Indicators Node.js Binding
  * https://tulipindicators.org/
- * Copyright (c) 2016-2018 Tulip Charts LLC
+ * Copyright (c) 2016-2019 Tulip Charts LLC
  * Lewis Van Winkle (LV@tulipcharts.org)
  *
  * This file is part of Tulip Indicators.
