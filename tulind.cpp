@@ -235,9 +235,8 @@ NAN_METHOD(callbyindex) {
 
 
     v8::Local<v8::Function> callbackHandle = info[3].As<v8::Function>();
-    Nan::AsyncResource *cb = new Nan::AsyncResource("tulind-callback");
-    cb->runInAsyncScope(Nan::GetCurrentContext()->Global(), callbackHandle, 2, cb_argv);
-    delete cb;
+    Nan::AsyncResource cb("tulind-callback");
+    cb.runInAsyncScope(Nan::GetCurrentContext()->Global(), callbackHandle, 2, cb_argv);
 }
 
 
