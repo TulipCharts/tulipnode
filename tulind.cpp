@@ -316,5 +316,7 @@ NAN_MODULE_INIT(Init) {
 
 }
 
-NODE_MODULE(tulind, Init)
-
+NODE_MODULE_INIT()
+{
+  Init(exports);
+}
