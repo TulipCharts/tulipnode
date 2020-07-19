@@ -19,6 +19,13 @@ var make_call = function(ind) {
   };
 };
 
+var make_sync_call = function(ind) {
+  var index = ind.index;
+  return function(inputs, options) {
+    return tulind.callbyindex(index, inputs, options);
+  };
+};
+
 var make_start = function(ind) {
   var index = ind.index;
   return function(options) {
@@ -34,6 +41,7 @@ for (var key in indicators) {
   if (typeof ind.indicator == 'function') break;
 
   ind.indicator = make_call(ind);
+  ind.indicator_sync = make_sync_call(ind);
   ind.start = make_start(ind);
   delete ind.index;
 }

@@ -89,9 +89,9 @@ NAN_METHOD(startbyindex) {
 
 
 NAN_METHOD(callbyindex) {
-
-    if (info.Length() != 4) {
-        Nan::ThrowTypeError("Wrong number of arguments. Expecting: index, inputs, options, and callback.");
+    bool synchronous_call = info.Length() == 3;
+    if (!synchronous_call && info.Length() != 4) {
+        Nan::ThrowTypeError("Wrong number of arguments. Expecting: index, inputs, options, and [callback].");
         return;
     }
 
@@ -110,8 +110,8 @@ NAN_METHOD(callbyindex) {
         return;
     }
 
-    if (!info[3]->IsFunction()) {
-        Nan::ThrowTypeError("Expecting last argument to be callback function.");
+    if (!synchronous_call && !info[3]->IsFunction()) {
+        Nan::ThrowTypeError("Expecting fourth argument to be callback function.");
         return;
     }
 
@@ -233,6 +233,16 @@ NAN_METHOD(callbyindex) {
         free(output_arr[i]);
     }
 
+    if (synchronous_call) {
+        if (cb_argv[0]->IsNull()) {
+            info.GetReturnValue().Set(cb_argv[1]);
+            return;
+        }
+        else {
+            Nan::ThrowError(cb_argv[0]);
+            return;
+        }
+    }
 
     v8::Local<v8::Function> callbackHandle = info[3].As<v8::Function>();
     Nan::AsyncResource cb("tulind-callback");

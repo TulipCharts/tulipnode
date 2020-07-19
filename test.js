@@ -30,6 +30,8 @@ l.run("array dema", function() {
   tulind.indicators.dema.indicator([a], [5], function(err, results) {
     l.ok(equal(results[0], b));
   });
+  const results = tulind.indicators.dema.indicator_sync([a], [5]);
+  l.ok(equal(results[0], b));
 });
 
 l.run("array sma", function() {
@@ -63,12 +65,29 @@ l.run("array sma", function() {
       l.ok(equal(results[0], []));
     });
 
+    var results = tulind.indicators.sma.indicator_sync([a], [2]);
+    l.ok(equal(results[0], [1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5]));
+  
+    results = tulind.indicators.sma.indicator_sync([a], [3]);
+    l.ok(equal(results[0], [2, 3, 4, 5, 6, 7, 8, 9]));
+  
+    results = tulind.indicators.sma.indicator_sync([a], [4]);
+    l.ok(equal(results[0], [2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5]));
+  
+    results = tulind.indicators.sma.indicator_sync([a], [10]);
+    l.ok(equal(results[0], [5.5]));
+  
+    results = tulind.indicators.sma.indicator_sync([a], [11]);
+    l.ok(equal(results[0], []));
     //atoz page 207
     var c = [25,24.875,24.781,24.594,24.5,24.625,25.219,27.25];
     var b = [24.75,24.675,24.744,25.238];
     tulind.indicators.sma.indicator([c], [5], function(err, results) {
       l.ok(equal(results[0], b));
     });
+
+    results = tulind.indicators.sma.indicator_sync([c], [5]);
+    l.ok(equal(results[0], b));
 });
 
 
@@ -79,6 +98,9 @@ l.run("array ema", function() {
     tulind.indicators.ema.indicator([a], [5], function(err, results) {
       l.ok(equal(results[0], b));
     });
+
+    const results = tulind.indicators.ema.indicator_sync([a], [5]);
+    l.ok(equal(results[0], b));
 });
 
 
@@ -89,6 +111,9 @@ l.run("array tema", function() {
     tulind.indicators.tema.indicator([a], [5], function(err, results) {
       l.ok(equal(results[0], b));
     });
+
+    const results = tulind.indicators.tema.indicator_sync([a], [5]);
+    l.ok(equal(results[0], b));
 });
 
 l.run("array wilders", function() {
@@ -98,6 +123,9 @@ l.run("array wilders", function() {
     tulind.indicators.wilders.indicator([a], [5], function(err, results) {
       l.ok(equal(results[0], b));
     });
+    
+    const results = tulind.indicators.wilders.indicator_sync([a], [5]);
+    l.ok(equal(results[0], b));
 });
 
 
