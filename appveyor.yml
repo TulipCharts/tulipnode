@@ -9,8 +9,6 @@ environment:
     secure: QBSKf6NBLUrjkk7ft4H8LyxATdcJ8PmQObKqDgl1qQmT0ju7r3l/D6t8MN2joQqk
 
   matrix:
-    - nodejs_version: 8
-    - nodejs_version: 9
     - nodejs_version: 10
     - nodejs_version: 11
     - nodejs_version: 12
