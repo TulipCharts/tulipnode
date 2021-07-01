@@ -26,7 +26,7 @@
   "dependencies": {
     "bindings": "^1.5.0",
     "nan": "^2.14.0",
-    "node-pre-gyp": "^0.13.0",
+    "@mapbox/node-pre-gyp": "^0.17.0",
     "minctest": "0.0.x"
   },
   "devDependencies": {
