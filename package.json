@@ -1,47 +1,46 @@
 {
-  "author": "Lewis Van Winkle",
-  "name": "tulind",
-  "version": "0.8.18",
-  "description": "Tulip Indicators Wrapper Providing Over 100 Technical Analysis Functions",
-  "main": "index.js",
-  "gypfile": true,
-  "repository": {
-      "type": "git",
-      "url": "git://github.com/TulipCharts/tulipnode"
-  },
-  "keywords": [
-      "tulip",
-      "charts",
-      "charting",
-      "indicators",
-      "oscillator",
-      "overlay",
-      "technical",
-      "analysis",
-      "finance",
-      "trading",
-      "markets"
-  ],
-  "license": "LGPL-3.0",
-  "dependencies": {
-    "bindings": "^1.5.0",
-    "nan": "^2.14.0",
-    "@mapbox/node-pre-gyp": "^1.0.5",
-    "minctest": "0.0.x"
-  },
-  "devDependencies": {
-      "aws-sdk": "2.x"
-  },
-  "scripts": {
-      "install": "node-pre-gyp install --fallback-to-build",
-      "test": "node test.js"
-  },
+    "author": "Lewis Van Winkle",
+    "name": "tulind",
+    "version": "0.8.19",
+    "description": "Tulip Indicators Wrapper Providing Over 100 Technical Analysis Functions",
+    "main": "index.js",
+    "gypfile": true,
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/TulipCharts/tulipnode"
+    },
+    "keywords": [
+        "tulip",
+        "charts",
+        "charting",
+        "indicators",
+        "oscillator",
+        "overlay",
+        "technical",
+        "analysis",
+        "finance",
+        "trading",
+        "markets"
+    ],
+    "license": "LGPL-3.0",
+    "dependencies": {
+        "bindings": "^1.5.0",
+        "nan": "^2.14.0",
+        "@mapbox/node-pre-gyp": "^1.0.5",
+        "minctest": "0.0.x"
+    },
+    "devDependencies": {
+        "aws-sdk": "2.x"
+    },
+    "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build",
+        "test": "node test.js"
+    },
     "binary": {
         "module_name": "tulind",
-        "module_path" : "./lib/binding/{configuration}/{node_abi}-{platform}-{arch}/",
-        "remote_path" : "./{module_name}/v{version}/{configuration}/",
+        "module_path": "./lib/binding/{configuration}/{node_abi}-{platform}-{arch}/",
+        "remote_path": "./{module_name}/v{version}/{configuration}/",
         "package_name": "{module_name}-v{version}-{node_abi}-{platform}-{arch}.tar.gz",
         "host": "https://tulipnode.s3.amazonaws.com"
     }
-
 }
