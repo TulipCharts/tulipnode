@@ -2,10 +2,10 @@
 
 
 environment:
-  node_pre_gyp_accessKeyId:
+  AWS_ACCESS_KEY_ID:
     secure: GOBrUyHVMfZSrmsS4I63fC+E3qploEcIuQc/ofuTK5U=
 
-  node_pre_gyp_secretAccessKey:
+  AWS_SECRET_ACCESS_KEY:
     secure: QBSKf6NBLUrjkk7ft4H8LyxATdcJ8PmQObKqDgl1qQmT0ju7r3l/D6t8MN2joQqk
 
   matrix:
