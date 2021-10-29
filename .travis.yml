@@ -4,8 +4,7 @@ os:
   - linux
   - osx
 
-dist:
-  - focal
+dist: focal
 
 env:
   matrix:
