@@ -4,7 +4,7 @@
     "version": "0.8.20",
     "description": "Tulip Indicators Wrapper Providing Over 100 Technical Analysis Functions",
     "main": "index.js",
-    "types": "index.d.js",
+    "types": "index.d.ts",
     "gypfile": true,
     "repository": {
         "type": "git",
