@@ -4,8 +4,8 @@ os:
   - linux
   - osx
 
-python:
-  - "3.6"
+dist:
+  - focal
 
 env:
   matrix:
