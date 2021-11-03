@@ -29,6 +29,7 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-9
+      - python2.7
 
 before_install:
   - export CXX=g++
