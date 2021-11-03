@@ -4,6 +4,8 @@ os:
   - linux
   - osx
 
+dist: focal
+
 env:
   matrix:
     - NODE_VERSION="10"
