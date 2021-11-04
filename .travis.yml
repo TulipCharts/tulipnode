@@ -29,7 +29,6 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-9
-      - python2.7
 
 before_install:
   - export CXX=g++
@@ -40,6 +39,7 @@ before_install:
   - nvm install $NODE_VERSION
   - nvm use $NODE_VERSION
   - export PATH=$(pwd)/node_modules/.bin:${PATH}
+  - npm install -g npm@6
 
 install:
   - npm install --build-from-source
