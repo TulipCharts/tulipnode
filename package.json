@@ -25,7 +25,7 @@
     "license": "LGPL-3.0",
     "dependencies": {
         "bindings": "^1.5.0",
-        "nan": "^2.14.0",
+        "nan": "^2.16.0",
         "@mapbox/node-pre-gyp": "^1.0.5",
         "minctest": "0.0.x"
     },
