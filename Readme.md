@@ -82,6 +82,27 @@ tulind.indicators.stoch.indicator([high, low, close], [5, 3, 3], function(err, r
 ```
 
 
+Examples of avoiding callbacks:
+
+``` js
+// Using indicator_sync
+const results = tulind.indicators.stoch.indicator_sync([high, low, close], [5, 3, 3]);
+console.log("Result of stochastic oscillator is:");
+console.log(results[0]);
+console.log(results[1]);
+```
+
+``` js
+// Using await
+(async ()=> {
+  const results = await tulind.indicators.stoch.indicator([high, low, close], [5, 3, 3]);
+  console.log("Result of stochastic oscillator is:");
+  console.log(results[0]);
+  console.log(results[1]);
+})();
+```
+
+
 It's also easy to discover argument types at run-time:
 
 ``` js
