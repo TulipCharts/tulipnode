@@ -17,6 +17,7 @@ environment:
     - nodejs_version: 15
     - nodejs_version: 16
     - nodejs_version: 17
+    - nodejs_version: 18
 
 platform:
     - x64
@@ -26,8 +27,6 @@ shallow_clone: true
 
 install:
   - ps: Install-Product node $env:nodejs_version $env:Platform
-  # npm 6.x is the latest version bundled with Node LTS 14.x
-  - npm install -g npm@6
   - ps: $env:path = $env:appdata + "\npm;" + $env:path
 
   # work around an issue with node-gyp v3.3.1 and node 4x
