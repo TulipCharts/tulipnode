@@ -79,8 +79,8 @@ var { promisify } = require('util');
 //You can promisify any indicator and use it like this 
 const sma_async = promisify(tulind.indicators.sma.indicator);
 
-const sma_inc = async (close) => {
-	const results = await sma_async([close], [3]);
+var sma_inc = async (close) => {
+	var results = await sma_async([close], [3]);
 	return results ;
 };
 
