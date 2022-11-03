@@ -67,7 +67,7 @@ tulind.indicators.sma.indicator([close], [3], function(err, results) {
 });
 ```
 
-Using Promise Wrapper
+Using Promise Wrapper:
 
 ``` js
 
