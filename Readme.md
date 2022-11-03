@@ -67,6 +67,24 @@ tulind.indicators.sma.indicator([close], [3], function(err, results) {
 });
 ```
 
+Using Promise Wrapper:
+
+``` js
+
+var tulind = require('tulind');
+var { promisify } = require('util');
+
+
+//Promisify the simple moving average 
+//You can promisify any indicator and use it like this 
+const sma_async = promisify(tulind.indicators.sma.indicator);
+
+var sma_inc = async (close) => {
+	var results = await sma_async([close], [3]);
+	return results ;
+};
+
+```
 
 
 Example of calculating the Stochastic Oscillator:
