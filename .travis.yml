@@ -26,17 +26,9 @@ env:
 
 sudo: false
 
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-9
-
 before_install:
   - export CXX=g++
   - export CC=gcc
-  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then export CC=gcc-9 CXX=g++-9; fi
   - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
   - source ~/.nvm/nvm.sh
   - nvm install $NODE_VERSION
