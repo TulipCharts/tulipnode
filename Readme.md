@@ -19,8 +19,7 @@ Installation should just be:
 npm install tulind
 ```
 
-It should work on Windows, Os X, and Linux. Node version 10, 11, 12, 13, 14 (LTS),
-15 and 16 are tested and supported on each platform.
+It should work on Windows, Os X, and Linux. Node version 10+ are tested and supported on each platform.
 
 Note that pre-compiled binaries are available for Windows. For other platforms
 you will need a C++ build environment installed. On Linux based distributions
